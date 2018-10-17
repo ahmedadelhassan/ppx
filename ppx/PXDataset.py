@@ -196,7 +196,7 @@ class PXDataset:
             return None
 
         lines = _openurl(url + "/").read().decode("UTF-8").splitlines()
-        files = [line.split("/")[-1] for line in lines]
+        files = [line.split("\t")[-1] for line in lines]
 
         if len(files) == 0:
             logging.warning("No files were found at " + url + ".")
