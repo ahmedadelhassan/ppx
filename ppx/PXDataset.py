@@ -196,7 +196,7 @@ class PXDataset:
             return None
 
         lines = _openurl(url + "/").read().decode("UTF-8").splitlines()
-        files = [line.split("\t")[-1] for line in lines]
+        files = [line.split()[8:] for line in lines]    # The ftp server returns 9 columns space separated
 
         if len(files) == 0:
             logging.warning("No files were found at " + url + ".")
